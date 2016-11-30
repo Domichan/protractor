@@ -5,7 +5,7 @@ Feature: Book adding
     When I add new book
       | authName |authSurname|        title       |type | ISBN |
       |Lucy Mount|Montgomery |Anne of Green Gables|comic|random|
-    And I should see new book data
+    Then I should see new book data
       | authName |authSurname|        title       |type | ISBN |
       |Lucy Mount|Montgomery |Anne of Green Gables|comic|random|
     And I should see new book in table

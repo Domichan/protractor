@@ -1,0 +1,71 @@
+<div class="panel panel-primary">
+    <div class="panel-heading"><h4>Add a new book</h4></div>
+    <div class="panel-body">
+        <div class="col-sm-5">
+            <img src="../assets/images/book.gif" class="pull-right">
+        </div>
+        <div class="col-sm-4">
+            <form ng-if="!id" class="form-horizontal displayData" ng-submit="submit()">
+                <div class="form-group">
+                    <label for="authName" class="control-label">Author name:</label>
+                    <input ng-model="formData.authName" class="form-control" id="authName"
+                           placeholder="Enter author name">
+                </div>
+                <div class="form-group">
+                    <label for="authSurname" class="control-label">Author surname:</label>
+                    <input ng-model="formData.authSurname" class="form-control" id="authSurname"
+                           placeholder="Enter author surname">
+                </div>
+                <div class="form-group">
+                    <label for="title" class="control-label">Title:</label>
+                    <input ng-model="formData.title" class="form-control" id="title" placeholder="Enter book title."
+                           required title="Please enter the value!">
+                </div>
+                <div class="form-group">
+                    <label for="type" class="control-label">Type:</label>
+                    <select ng-model="formData.typeName" class="form-control" id="type" required
+                            title="Please select the value!">
+                        <option value=""></option>
+                        <option ng-repeat="type in types" value="{{type.bookTypeName}}">
+                            {{type.bookTypeName}}
+                        </option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <output ng-if="responseMessage" ng-bind="responseMessage" id="error"/>
+                </div>
+                <div class="form-group">
+                    <label for="isbn" class="control-label">ISBN:</label>
+                    <input ng-model="formData.isbn" class="form-control" id="isbn" placeholder="Enter book ISBN"/>
+                </div>
+                <a ui-sref="displayBooks" class="btn btn-primary" role="button">Cancel</a>
+                <button type="submit" class="btn btn-primary pull-right">Save</button>
+            </form>
+
+            <div ng-if="id" class="confirmation displayData">
+                <div class="form-group">
+                    <label for="dName" class="control-label">Author name:</label>
+                    <output ng-bind="backData.authName" class="form-control" id="dName"/>
+                </div>
+                <div class="form-group">
+                    <label for="dSurname" class="control-label">Author surname:</label>
+                    <output ng-bind="backData.authSurname" class="form-control" id="dSurname"/>
+                </div>
+                <div class="form-group">
+                    <label for="dTitle" class="control-label">Title:</label>
+                    <output ng-bind="backData.bookTitle" class="form-control" id="dTitle"/>
+                </div>
+                <div class="form-group">
+                    <label for="dType" class="control-label">Type:</label>
+                    <output ng-bind="backData.bookTypeName" class="form-control" id="dType"/>
+                </div>
+                <div class="form-group">
+                    <label for="dIsbn" class="control-label">ISBN:</label>
+                    <output ng-bind="backData.bookIsbn" class="form-control" id="dIsbn"/>
+                </div>
+                <a ui-sref="displayBooks" class="btn btn-primary pull-right" role="button">Back to books list</a>
+            </div>
+        </div>
+        <div class="col-sm-3"></div>
+    </div>
+</div>

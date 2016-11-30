@@ -1,0 +1,32 @@
+<div class="panel panel-primary">
+    <div class="panel-heading"><h4>Users in your library:</h4></div>
+    <div class="panel-body">
+        <table class="table">
+            <tr>
+                <td></td>
+                <td><input type="text" ng-model="search.userSurname" placeholder="Search by surname" id="my-searcher"/></td>
+                <td></td>
+                <td></td>
+                <td>
+                    <a ui-sref="addUser" class="btn btn-primary pull-right" role="button" id="addUser">Add a user</a>
+                </td>
+            </tr>
+            <tr class="info">
+                <th>Name</th>
+                <th>Surname</th>
+                <th>Age</th>
+                <th>Profession</th>
+                <th>Delete</th>
+            </tr>
+            <tr ng-repeat="user in users | filter:search">
+                <td>{{ user.userName }}</td>
+                <td>{{ user.userSurname }}</td>
+                <td>{{ user.userAge }}</td>
+                <td>{{ user.userJob }}</td>
+                <td>
+                    <button class="btn btn-primary" ng-click="removeRow(user.userId)"><span class="glyphicon glyphicon-trash"></span></button>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>

@@ -22,17 +22,27 @@ var addBookSteps = function () {
             row = table[0];
         addBook.launchAddBook()
             .then(function () {
-                addBook.setAuthName(row.authName);
-                addBook.setAuthSurname(row.authSurname);
-                addBook.setTitle(row.title);
-                addBook.setType(row.type);
-                world.basicSupport.bookISBN.setISBN();
-                return addBook.setISBN(world.basicSupport.bookISBN.ISBN);
+                addBook.setAuthName(row.authName)
+                    .then(function () {
+                        addBook.setAuthSurname(row.authSurname)
+                            .then(function () {
+                                addBook.setAuthSurname(row.authSurname)
+                                    .then(function () {
+                                        addBook.setTitle(row.title)
+                                            .then(function () {
+                                                addBook.setType(row.type)
+                                                    .then(function () {
+                                                        addBook.setISBN(world.basicSupport.bookISBN.ISBN)
+                                                            .then(function () {
+                                                                return addBook.saveBook()
+                                                                    .then(callback);
+                                                            })
+                                                    })
+                                            })
+                                    })
+                            })
+                    })
             })
-            .then(function () {
-                return addBook.saveBook();
-            })
-            .then(callback);
     });
 
     this.When(/^I should see new book data$/, function (data, callback) {

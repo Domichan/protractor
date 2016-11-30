@@ -1,10 +1,13 @@
 var pageCollection = (function () {
 
-    var addBook = require('../tests/page/addBook')
-        
+    var addBook = require('../tests/page/addBook'),
+        confirmBook = require('../tests/page/confirmBook'),
+        displayBooks = require('../tests/page/displayBooks');
 
     return {
-        addBook: addBook
+        addBook: addBook,
+        confirmBook: confirmBook,
+        displayBooks: displayBooks
     };
 
 }());

@@ -20,19 +20,15 @@ var addBookSteps = function () {
     this.When(/^(?:I add new book|There is the following book on list:)?$/, function (data, callback) {
         var table = data.hashes(),
             row = table[0];
-        addBook.launchAddBook()
-            .then(function () {
-                addBook.setAuthName(row.authName);
-                addBook.setAuthSurname(row.authSurname);
-                addBook.setTitle(row.title);
-                addBook.setType(row.type);
-                world.basicSupport.bookISBN.setISBN();
-                return addBook.setISBN(world.basicSupport.bookISBN.ISBN);
-            })
-            .then(function () {
-                return addBook.saveBook();
-            })
-            .then(callback);
+        addBook.launchAddBook();
+        addBook.setAuthName(row.authName);
+        addBook.setAuthSurname(row.authSurname);
+        addBook.setTitle(row.title);
+        addBook.setType(row.type);
+        world.basicSupport.bookISBN.setISBN();
+        addBook.setISBN(world.basicSupport.bookISBN.ISBN);
+        addBook.saveBook();
+        callback();
     });
 
     this.When(/^I should see new book data$/, function (data, callback) {

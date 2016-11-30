@@ -1,0 +1,52 @@
+<div class="panel panel-primary">
+    <div class="panel-heading"><h4>Add a new user</h4></div>
+    <div class="panel-body">
+        <div class="col-sm-5">
+            <img src="../assets/images/owl.gif" class="pull-right">
+        </div>
+        <div class="col-sm-4">
+            <form ng-if="!id" class="form-horizontal displayData" ng-submit="submit()">
+                <div class="form-group">
+                    <label for="userName" class="control-label">User name:</label>
+                    <input ng-model="userData.userName" class="form-control" id="userName" placeholder="Enter user name" required title="Please enter the value!">
+                </div>
+                <div class="form-group">
+                    <label for="userSurname" class="control-label">User surname:</label>
+                    <input ng-model="userData.userSurname" class="form-control" id="userSurname" placeholder="Enter user surname" required title="Please enter the value!">
+                </div>
+                <div class="form-group">
+                    <label for="userAge" class="control-label">User age:</label>
+                    <input ng-model="userData.userAge" class="form-control" id="userAge" placeholder="Enter user age" pattern="[0-9]*" title="Must be number!">
+                </div>
+                <div class="form-group">
+                    <label for="userJob" class="control-label">Profession:</label>
+                    <input ng-model="userData.userJob" class="form-control new-class" id="userJob" placeholder="Enter user profession">
+                </div>
+                <a ui-sref="displayUsers" class="btn btn-primary" role="button">Cancel</a>
+                <button type="submit" class="btn btn-primary pull-right">Save</button>
+            </form>
+
+
+            <div ng-if="id" class="confirmation displayData">
+                <div class="form-group">
+                    <label for="dUserName" class="control-label">User name:</label>
+                    <output ng-bind="confirmData.userName" class="form-control" id="dUserName" placeholder="Enter user name"/>
+                </div>
+                <div class="form-group">
+                    <label for="dUserSurname" class="control-label">User surname:</label>
+                    <output ng-bind="confirmData.userSurname" class="form-control" id="dUserSurname" placeholder="Enter user surname"/>
+                </div>
+                <div class="form-group">
+                    <label for="dUserAge" class="control-label">User age:</label>
+                    <output ng-bind="confirmData.userAge" class="form-control" id="dUserAge" placeholder="Enter user age"/>
+                </div>
+                <div class="form-group">
+                    <label for="dUserJob" class="control-label">Profession:</label>
+                    <output ng-bind="confirmData.userJob" class="form-control" id="dUserJob" placeholder="Enter user profession"/>
+                </div>
+                <a ui-sref="displayUsers" class="btn btn-primary pull-right" role="button">Back to users list</a>
+            </div>
+        </div>
+        <div class="col-sm-3"></div>
+    </div>
+</div>

@@ -1,0 +1,32 @@
+<div class="panel panel-primary">
+    <div class="panel-heading"><h4 id="tescik">Books in your library:</h4></div>
+    <div class="panel-body">
+        <table class="table">
+            <tr>
+                <td></td>
+                <td></td>
+                <td><input type="text" ng-model="search.bookIsbn" placeholder="Search by ISBN" id="book-searcher"/></td>
+                <td></td>
+                <td>
+                    <a ui-sref="addBook" class="btn btn-primary pull-right" role="button" id="addBook">Add a book</a>
+                </td>
+            </tr>
+            <tr class="info">
+                <th>Author</th>
+                <th>Title</th>
+                <th>ISBN</th>
+                <th>Type</th>
+                <th>Delete</th>
+            </tr>
+            <tr ng-repeat="book in books | filter:search">
+                <td>{{ book.authName }} {{ book.authSurname }}</td>
+                <td>{{ book.bookTitle }}</td>
+                <td>{{ book.bookIsbn }}</td>
+                <td>{{ book.bookTypeName }}</td>
+                <td>
+                    <button class="btn btn-primary" ng-click="removeRow(book.bookId)"><span class="glyphicon glyphicon-trash"></span></button>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
