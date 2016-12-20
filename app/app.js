@@ -1,6 +1,6 @@
 'use strict';
 var main = angular.module('app', ['ui.router']);
-main.constant('basicUrl','http://192.168.0.248:3000');
+main.constant('basicUrl','http://localhost:3000');
 main.config(function($stateProvider, $urlRouterProvider){
 
     // For any unmatched url, send to /route1

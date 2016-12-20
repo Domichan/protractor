@@ -8,7 +8,7 @@ exports.config = {
 
   verbose: true,
 
-  specs: ['../tests/delete*.feature'],
+  specs: ['../tests/addBook*.feature'],
   chromeOnly: false,
 
   multiCapabilities: [
